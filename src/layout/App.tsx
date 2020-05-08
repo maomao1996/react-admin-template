@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'antd'
-import logo from './logo.svg'
+import logo from '@/assets/images/logo.svg'
 import './App.css'
 
 function App() {
