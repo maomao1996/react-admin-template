@@ -1,0 +1,4 @@
+*.svg
+*.html
+package.json
+tsconfig.json

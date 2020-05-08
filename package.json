@@ -22,7 +22,8 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "fix": "prettier --write  ./src"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,6 +43,7 @@
   "devDependencies": {
     "babel-plugin-import": "^1.13.0",
     "customize-cra": "^0.9.1",
+    "prettier": "^2.0.5",
     "react-app-rewired": "^2.1.6",
     "sass": "^1.26.5"
   }
