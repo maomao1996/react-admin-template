@@ -1,0 +1,11 @@
+// 全局样式类
+
+@each $key in (center, left, right) {
+  .is-#{$key} {
+    text-align: $key;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
