@@ -1,15 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import '@/styles/index.scss'
+import ErrorBoundary from '@/components/ErrorBoundary'
 import BasisLayout from '@/layout/BasisLayout'
 import App from './layout/App'
 
 import * as serviceWorker from './serviceWorker'
 
+import '@/styles/index.scss'
+
 ReactDOM.render(
-  <BasisLayout>
-    <App />
-  </BasisLayout>,
+  <ErrorBoundary>
+    <BasisLayout>
+      <App />
+    </BasisLayout>
+  </ErrorBoundary>,
   document.getElementById('root')
 )
 
