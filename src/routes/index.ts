@@ -5,6 +5,14 @@ export const normalRoutes: MRoute[] = [
   {
     path: '/login',
     component: lazy(() => import('@/pages/login'))
+  },
+  {
+    path: '/404',
+    component: lazy(() => import('@/pages/404'))
+  },
+  {
+    path: '*',
+    redirect: '/404'
   }
 ]
 
