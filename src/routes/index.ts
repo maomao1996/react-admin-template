@@ -16,6 +16,12 @@ export const normalRoutes: MRoute[] = [
   }
 ]
 
-export const authorizedRoutes: MRoute[] = []
+export const authorizedRoutes: MRoute[] = [
+  {
+    layout: 'AuthorityLayout',
+    path: '/home',
+    component: lazy(() => import('@/pages/home'))
+  }
+]
 
 export const routes = [...authorizedRoutes, ...normalRoutes]
