@@ -1,10 +1,11 @@
 import React from 'react'
 import { Layout } from 'antd'
+import Header from './components/Header'
 import Footer from './components/Footer'
 
 import './AuthorityLayout.scss'
 
-const { Header, Sider, Content } = Layout
+const { Sider, Content } = Layout
 
 interface AuthorityLayoutProps {}
 
