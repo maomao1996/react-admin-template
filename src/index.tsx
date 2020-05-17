@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ErrorBoundary from '@/components/ErrorBoundary'
-import NormalLayout from '@/layout/NormalLayout'
-import App from './layout/App'
+import App from './App'
 
 import * as serviceWorker from './serviceWorker'
 
@@ -10,9 +9,7 @@ import '@/styles/index.scss'
 
 ReactDOM.render(
   <ErrorBoundary>
-    <NormalLayout>
-      <App />
-    </NormalLayout>
+    <App />
   </ErrorBoundary>,
   document.getElementById('root')
 )
