@@ -8,7 +8,7 @@ type Layout = {
   AuthorityLayout: React.FC
 }
 
-const LAYOUT_MAP:Layout = {
+const LAYOUT_MAP: Layout = {
   NormalLayout: NormalLayout,
   AuthorityLayout: AuthorityLayout
 }
@@ -54,12 +54,6 @@ interface RenderRouterProps {
   routes: MRoute[]
 }
 
-export default function RenderRouter({
-  routes
-}: RenderRouterProps) {
-  return (
-    <Switch>
-      {routes.map((route) => renderRoute(route))}
-    </Switch>
-  )
+export default function RenderRouter({ routes }: RenderRouterProps) {
+  return <Switch>{routes.map((route) => renderRoute(route))}</Switch>
 }
