@@ -1,0 +1,27 @@
+.m-sider {
+  &-head {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 24px;
+    overflow: hidden;
+    height: 60px;
+    background: #001529;
+    cursor: pointer;
+  }
+  &-logo {
+    height: 32px;
+    vertical-align: middle;
+  }
+  &-title {
+    flex: 1;
+    margin-left: 12px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    vertical-align: middle;
+  }
+  &-content {
+    padding: 16px 0;
+  }
+}
