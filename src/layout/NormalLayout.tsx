@@ -12,7 +12,7 @@ const NormalLayout: React.FC<NormalLayoutProps> = (props) => {
   const { children } = props
   return (
     <Layout className="m-normallayout">
-      <Content>{children}</Content>
+      <Content className="m-normallayout-content">{children}</Content>
       <Footer />
     </Layout>
   )
