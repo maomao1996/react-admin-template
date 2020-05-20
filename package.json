@@ -27,7 +27,7 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "fix": "prettier --write  ./src"
+    "lint": "prettier --write  ./src"
   },
   "eslintConfig": {
     "extends": "react-app"
