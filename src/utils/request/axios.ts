@@ -1,24 +1,35 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 import GlobalLoading from '@/base/GlobalLoading'
 
 // 处理请求 loading
 let loadingCount: number = 0
 function loadingInterceptors(instance: AxiosInstance): void {
-  const openLoading = (config: AxiosRequestConfig) => {
+  // 打开 loading
+  const openLoading = (config: AxiosRequestConfig): AxiosRequestConfig => {
     GlobalLoading.open()
     loadingCount++
     return config
   }
-  const closeLoading = (response: AxiosResponse) => {
+  // 关闭 loading
+  const closeLoading = () => {
     loadingCount--
     if (loadingCount < 0) {
       loadingCount = 0
     }
     loadingCount === 0 && GlobalLoading.close()
-    return response
   }
+
   instance.interceptors.request.use(openLoading)
-  instance.interceptors.response.use(closeLoading, (e) => e.response)
+  instance.interceptors.response.use(
+    (response) => {
+      closeLoading()
+      return response
+    },
+    (e) => {
+      closeLoading()
+      throw e
+    }
+  )
 }
 
 export default function createAxiosInstance(
