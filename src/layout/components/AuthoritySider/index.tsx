@@ -1,6 +1,7 @@
-import React, { useState, useCallback, useMemo } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import React, { useState, useCallback, useMemo, memo } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
+import { SiderProps } from 'antd/es/layout'
 import { pathToRegexp } from 'path-to-regexp'
 import Logo from '@/assets/images/logo.svg'
 import { menuConfig } from '@/config'
@@ -8,13 +9,13 @@ import { menuConfig } from '@/config'
 import './index.scss'
 
 const { Sider } = Layout
-const { SubMenu } = Menu
+const { SubMenu, Item } = Menu
 
 export type MenuProps = {
   title: string
   children?: MenuProps[]
   [key: string]: any
-} & React.ComponentProps<typeof Menu.Item>
+} & React.ComponentProps<typeof Item>
 
 // 格式化菜单 path
 function formatMenuPath(menuData: MenuProps[], parentPath = '/'): MenuProps[] {
@@ -74,31 +75,34 @@ const renderMenu = (data: MenuProps[]) =>
     }
 
     return (
-      <Menu.Item key={item.path}>
+      <Item key={item.path}>
         <Link to={item.path} href={item.path}>
           <span>{item.title}</span>
         </Link>
-      </Menu.Item>
+      </Item>
     )
   })
 
-export default withRouter((props) => {
+const AuthoritySider: React.FC<SiderProps> = (props) => {
+  const {
+    location: { pathname }
+  } = useHistory()
   const fullPathMenuData = useMemo(() => formatMenuPath(menuConfig), [])
   const menuKeys = useMemo(() => getFlatMenuKeys(fullPathMenuData), [
     fullPathMenuData
   ])
 
   const selectedKeys = useCallback(() => {
-    return matchKeys(menuKeys, urlToArray(props.location.pathname))
-  }, [menuKeys, props.location.pathname])
+    return matchKeys(menuKeys, urlToArray(pathname))
+  }, [menuKeys, pathname])
 
   const [openKeys, setOpenKeys] = useState(selectedKeys())
 
   return (
-    <Sider className="m-sider" width="260">
+    <Sider className="m-sider" {...props} collapsible>
       <Link className="m-sider-head" to="/" href="/">
         <img className="m-sider-logo" src={Logo} alt="logo" />
-        <h1 className="m-sider-title">管理后台模板</h1>
+        {!props.collapsed && <h1 className="m-sider-title">管理后台模板</h1>}
       </Link>
       <div className="m-sider-content">
         <Menu
@@ -113,4 +117,6 @@ export default withRouter((props) => {
       </div>
     </Sider>
   )
-})
+}
+
+export default memo(AuthoritySider)
