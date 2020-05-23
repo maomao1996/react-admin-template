@@ -1,4 +1,4 @@
-import { MenuProps } from '@/layout/components/Sider'
+import { MenuProps } from '@/layout/components/AuthoritySider'
 
 // 侧边栏配置
 
