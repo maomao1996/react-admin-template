@@ -4,7 +4,7 @@ import { Layout, Menu } from 'antd'
 import { SiderProps } from 'antd/es/layout'
 import { pathToRegexp } from 'path-to-regexp'
 import Logo from '@/assets/images/logo.svg'
-import { menuConfig } from '@/config'
+import { menuConfig } from '@/config/menu.tsx'
 
 import './index.scss'
 
@@ -75,7 +75,7 @@ const renderMenu = (data: MenuProps[]) =>
     }
 
     return (
-      <Item key={item.path}>
+      <Item key={item.path} icon={item.icon}>
         <Link to={item.path} href={item.path}>
           <span>{item.title}</span>
         </Link>

@@ -17,6 +17,7 @@ export type MRoute = {
   component?: any
   redirect?: string
   layout?: 'NormalLayout' | 'AuthorityLayout'
+  icon?: React.ReactNode
   [key: string]: any
 } & RouteProps
 
