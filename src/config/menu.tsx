@@ -1,3 +1,5 @@
+import React from 'react'
+import { DatabaseOutlined } from '@ant-design/icons'
 import { MenuProps } from '@/layout/components/AuthoritySider'
 
 // 侧边栏配置
@@ -5,7 +7,8 @@ import { MenuProps } from '@/layout/components/AuthoritySider'
 export const menuConfig: MenuProps[] = [
   {
     title: '首页',
-    path: 'home'
+    path: 'home',
+    icon: <DatabaseOutlined/>
   },
   {
     title: '列表',
