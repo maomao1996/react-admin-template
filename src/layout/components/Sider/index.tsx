@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
 import { pathToRegexp } from 'path-to-regexp'
 import Logo from '@/assets/images/logo.svg'
-import menuData from './menuData'
+import { menuConfig } from '@/config'
 
 import './index.scss'
 
@@ -83,7 +83,7 @@ const renderMenu = (data: MenuProps[]) =>
   })
 
 export default withRouter((props) => {
-  const fullPathMenuData = useMemo(() => formatMenuPath(menuData), [])
+  const fullPathMenuData = useMemo(() => formatMenuPath(menuConfig), [])
   const menuKeys = useMemo(() => getFlatMenuKeys(fullPathMenuData), [
     fullPathMenuData
   ])
