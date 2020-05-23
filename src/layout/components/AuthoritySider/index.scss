@@ -1,4 +1,10 @@
 .m-sider {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: auto;
+  box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
   &-head {
     display: flex;
     align-items: center;
@@ -20,6 +26,7 @@
     font-weight: 600;
     font-size: 20px;
     vertical-align: middle;
+    white-space: nowrap;
   }
   &-content {
     padding: 16px 0;
