@@ -2,12 +2,10 @@ import React from 'react'
 import { CopyrightOutlined } from '@ant-design/icons'
 import { Layout } from 'antd'
 
-import './index.scss'
-
 export default () => {
   return (
-    <Layout.Footer className="m-footer">
-      Copyright <CopyrightOutlined /> 2020
+    <Layout.Footer className="is-center">
+      Copyright <CopyrightOutlined /> 2020 maomao1996 制作
     </Layout.Footer>
   )
 }
