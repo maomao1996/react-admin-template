@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ErrorBoundary from '@/components/ErrorBoundary'
 import App from './App'
+import LoginContainer from '@/store/login'
 
 import * as serviceWorker from './serviceWorker'
 
@@ -9,7 +10,9 @@ import '@/styles/index.scss'
 
 ReactDOM.render(
   <ErrorBoundary>
-    <App />
+    <LoginContainer.Provider>
+      <App />
+    </LoginContainer.Provider>
   </ErrorBoundary>,
   document.getElementById('root')
 )
