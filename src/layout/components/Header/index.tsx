@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { Layout, Dropdown, Avatar, Menu } from 'antd'
 import { ClickParam } from 'antd/es/menu'
-import { LogoutOutlined } from '@ant-design/icons'
+import { LogoutOutlined, GithubOutlined } from '@ant-design/icons'
 import LoginContainer from '@/store/login'
 import Logo from '@/assets/images/logo.svg'
 
@@ -20,6 +20,9 @@ export default () => {
           history.push('/login')
         })
         break
+      case 'github':
+        window.open('https://github.com/maomao1996/react-admin-template')
+        break
       default:
         break
     }
@@ -27,6 +30,10 @@ export default () => {
 
   const menu = (
     <Menu selectedKeys={[]} onClick={onMenuClick}>
+      <Menu.Item key="github">
+        <GithubOutlined />
+        项目地址
+      </Menu.Item>
       <Menu.Item key="logout">
         <LogoutOutlined />
         注销
