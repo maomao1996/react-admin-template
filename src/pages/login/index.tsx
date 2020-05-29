@@ -58,9 +58,8 @@ export default function Login(props: RouteComponentProps) {
               }
             ]}
           >
-            <Input
+            <Input.Password
               prefix={<LockTwoTone className="login-prefix-icon" />}
-              type="password"
               placeholder="请输入密码"
             />
           </Form.Item>
