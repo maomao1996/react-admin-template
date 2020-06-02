@@ -25,6 +25,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
+    "analyze": "source-map-explorer build/static/js/*.js",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "lint": "prettier --write  ./src"
@@ -51,6 +52,7 @@
     "customize-cra": "^0.9.1",
     "prettier": "^2.0.5",
     "react-app-rewired": "^2.1.6",
-    "sass": "^1.26.5"
+    "sass": "^1.26.5",
+    "source-map-explorer": "^2.4.2"
   }
 }
