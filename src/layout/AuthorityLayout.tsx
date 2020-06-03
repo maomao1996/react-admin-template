@@ -26,7 +26,12 @@ const AuthorityLayout: React.FC<AuthorityLayoutProps> = (props) => {
         onCollapse={setCollapsed}
         width={SIDER_MAX_WIDTH}
       />
-      <Layout style={{ paddingLeft: collapsed ? 80 : SIDER_MAX_WIDTH }}>
+      <Layout
+        style={{
+          paddingLeft: collapsed ? 80 : SIDER_MAX_WIDTH,
+          transition: 'all 0.2s'
+        }}
+      >
         <Header />
         <Content className="m-authoritylayout-content">{children}</Content>
         <Footer />
