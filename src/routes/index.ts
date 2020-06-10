@@ -1,6 +1,7 @@
 import { lazy } from 'react'
 import { MRoute } from './RenderRouter'
 
+// 登录
 export const loginRoutes: MRoute[] = [
   {
     path: '/login',
@@ -8,6 +9,7 @@ export const loginRoutes: MRoute[] = [
   }
 ]
 
+// 默认路由
 export const normalRoutes: MRoute[] = [
   ...loginRoutes,
   {
@@ -16,12 +18,18 @@ export const normalRoutes: MRoute[] = [
   }
 ]
 
+// 权限路由
 export const authorizedRoutes: MRoute[] = [
   {
     layout: 'AuthorityLayout',
     path: '/home',
     component: lazy(() => import('@/pages/home'))
-  },
+  }
+]
+
+export const routes = [
+  ...authorizedRoutes,
+  ...loginRoutes,
   {
     path: '/404',
     component: lazy(() => import('@/pages/404'))
@@ -36,5 +44,3 @@ export const authorizedRoutes: MRoute[] = [
     redirect: '/404'
   }
 ]
-
-export const routes = [...authorizedRoutes, ...normalRoutes]
