@@ -1,5 +1,5 @@
 import React from 'react'
-import { RouteComponentProps } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { Form, Input, Button } from 'antd'
 import { UserOutlined, LockTwoTone } from '@ant-design/icons'
 import LoginContainer from '@/store/login'
@@ -13,11 +13,14 @@ export interface LoginFormData {
 
 // 登录页
 
-export default function Login(props: RouteComponentProps) {
+const Login: React.FC = () => {
   const login = LoginContainer.useContainer()
+  const history = useHistory()
+
   const handleSubmit = (values: LoginFormData) => {
+    console.log(values)
     login.login().then(() => {
-      props.history.push('/home')
+      history.push('/home')
     })
   }
 
@@ -73,3 +76,5 @@ export default function Login(props: RouteComponentProps) {
     </div>
   )
 }
+
+export default Login

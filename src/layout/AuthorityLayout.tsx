@@ -10,9 +10,7 @@ import './AuthorityLayout.scss'
 
 const { Content } = Layout
 
-interface AuthorityLayoutProps {}
-
-const AuthorityLayout: React.FC<AuthorityLayoutProps> = (props) => {
+const AuthorityLayout: React.FC = (props) => {
   const { children } = props
 
   const [collapsed, setCollapsed] = useState<boolean>(
@@ -21,11 +19,7 @@ const AuthorityLayout: React.FC<AuthorityLayoutProps> = (props) => {
 
   return (
     <Layout className="m-authoritylayout">
-      <Sider
-        collapsed={collapsed}
-        onCollapse={setCollapsed}
-        width={SIDER_MAX_WIDTH}
-      />
+      <Sider collapsed={collapsed} onCollapse={setCollapsed} width={SIDER_MAX_WIDTH} />
       <Layout
         style={{
           paddingLeft: collapsed ? 80 : SIDER_MAX_WIDTH,

@@ -6,9 +6,7 @@ import './NormalLayout.scss'
 
 const { Content } = Layout
 
-interface NormalLayoutProps {}
-
-const NormalLayout: React.FC<NormalLayoutProps> = (props) => {
+const NormalLayout: React.FC = (props) => {
   const { children } = props
   return (
     <Layout className="m-normallayout">

@@ -4,8 +4,8 @@ import NormalLayout from '@/layout/NormalLayout'
 import AuthorityLayout from '@/layout/AuthorityLayout'
 
 type Layout = {
-  NormalLayout: React.FC
-  AuthorityLayout: React.FC
+  NormalLayout: React.ComponentType
+  AuthorityLayout: React.ComponentType
 }
 
 const LAYOUT_MAP: Layout = {
@@ -13,15 +13,13 @@ const LAYOUT_MAP: Layout = {
   AuthorityLayout: AuthorityLayout
 }
 
-export type MRoute = {
-  component?: any
+export type RouteItem = {
   redirect?: string
   layout?: 'NormalLayout' | 'AuthorityLayout'
   icon?: React.ReactNode
-  [key: string]: any
-} & RouteProps
+} & Omit<RouteProps, 'render'>
 
-const renderRedirectRoute = (route: MRoute) => {
+const renderRedirectRoute = (route: RouteItem) => {
   return (
     <Route
       {...route}
@@ -31,7 +29,7 @@ const renderRedirectRoute = (route: MRoute) => {
   )
 }
 
-const renderRoute = (route: MRoute) => {
+const renderRoute = (route: RouteItem) => {
   if (route.redirect) {
     return renderRedirectRoute(route)
   }
@@ -42,19 +40,17 @@ const renderRoute = (route: MRoute) => {
       {...rest}
       key={route.path as string}
       exact
-      render={(props) => (
-        <Layout {...props}>
-          <Component {...props}></Component>
-        </Layout>
-      )}
+      render={(props) => <Layout {...props}>{Component && <Component {...props} />}</Layout>}
     ></Route>
   )
 }
 
 interface RenderRouterProps {
-  routes: MRoute[]
+  routes: RouteItem[]
 }
 
-export default function RenderRouter({ routes }: RenderRouterProps) {
+const RenderRouter: React.FC<RenderRouterProps> = ({ routes }) => {
   return <Switch>{routes.map((route) => renderRoute(route))}</Switch>
 }
+
+export default RenderRouter

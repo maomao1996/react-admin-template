@@ -15,7 +15,7 @@ function Loading(props: React.ComponentProps<typeof Spin>) {
 
 let dom: HTMLElement | null
 const GlobalLoading = {
-  open(props: React.ComponentProps<typeof Spin> = {}) {
+  open(props: React.ComponentProps<typeof Spin> = {}): void {
     if (!dom) {
       dom = document.createElement('div')
       ReactDOM.render(<Loading {...props} />, dom)
@@ -25,10 +25,10 @@ const GlobalLoading = {
       dom.style.display = ''
     }
   },
-  close() {
+  close(): void {
     dom!.style.display = 'none'
   },
-  remove() {
+  remove(): void {
     ReactDOM.unmountComponentAtNode(dom!)
     document.body.removeChild(dom!)
     dom = null

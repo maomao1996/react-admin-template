@@ -1,8 +1,8 @@
 import { lazy } from 'react'
-import { MRoute } from './RenderRouter'
+import { RouteItem } from './RenderRouter'
 
 // 登录
-export const loginRoutes: MRoute[] = [
+export const loginRoutes: RouteItem[] = [
   {
     path: '/login',
     component: lazy(() => import('@/pages/login'))
@@ -10,7 +10,7 @@ export const loginRoutes: MRoute[] = [
 ]
 
 // 默认路由
-export const normalRoutes: MRoute[] = [
+export const normalRoutes: RouteItem[] = [
   ...loginRoutes,
   {
     path: '*',
@@ -19,7 +19,7 @@ export const normalRoutes: MRoute[] = [
 ]
 
 // 权限路由
-export const authorizedRoutes: MRoute[] = [
+export const authorizedRoutes: RouteItem[] = [
   {
     layout: 'AuthorityLayout',
     path: '/home',
@@ -27,7 +27,7 @@ export const authorizedRoutes: MRoute[] = [
   }
 ]
 
-export const routes = [
+export const routes: RouteItem[] = [
   ...authorizedRoutes,
   ...loginRoutes,
   {
