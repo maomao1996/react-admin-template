@@ -13,8 +13,8 @@ const { SubMenu, Item } = Menu
 
 export type MenuProps = {
   title: string
+  path: string
   children?: MenuProps[]
-  [key: string]: any
 } & React.ComponentProps<typeof Item>
 
 // 格式化菜单 path
@@ -25,10 +25,7 @@ function formatMenuPath(menuData: MenuProps[], parentPath = '/'): MenuProps[] {
       path: `${parentPath}${item.path}`
     }
     if (item.children) {
-      result.children = formatMenuPath(
-        item.children,
-        `${parentPath}${item.path}/`
-      )
+      result.children = formatMenuPath(item.children, `${parentPath}${item.path}/`)
     }
     return result
   })
@@ -88,9 +85,7 @@ const AuthoritySider: React.FC<SiderProps> = (props) => {
     location: { pathname }
   } = useHistory()
   const fullPathMenuData = useMemo(() => formatMenuPath(menuConfig), [])
-  const menuKeys = useMemo(() => getFlatMenuKeys(fullPathMenuData), [
-    fullPathMenuData
-  ])
+  const menuKeys = useMemo(() => getFlatMenuKeys(fullPathMenuData), [fullPathMenuData])
 
   const selectedKeys = useCallback(() => {
     return matchKeys(menuKeys, urlToArray(pathname))

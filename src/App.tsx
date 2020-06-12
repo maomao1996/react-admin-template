@@ -6,7 +6,7 @@ import { routes, normalRoutes } from '@/routes'
 import LoginContainer from '@/store/login'
 import { antdConfig } from './config'
 
-function App() {
+const App: React.FC = () => {
   const { isLogin } = LoginContainer.useContainer()
 
   return (

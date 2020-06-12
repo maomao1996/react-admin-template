@@ -8,11 +8,11 @@ class ErrorBoundary extends Component {
     error: null
   }
 
-  static getDerivedStateFromError(error: any) {
-    return { error: error }
+  static getDerivedStateFromError(error: unknown): unknown {
+    return { error }
   }
 
-  render() {
+  render(): React.ReactNode {
     if (this.state.error) {
       return (
         <Result

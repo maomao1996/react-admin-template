@@ -8,9 +8,7 @@ import Logo from '@/assets/images/logo.svg'
 
 import './index.scss'
 
-const { Header } = Layout
-
-export default () => {
+const Header: React.FC = () => {
   const { logout, userInfo } = LoginContainer.useContainer()
   const history = useHistory()
   const onMenuClick = ({ key }: ClickParam) => {
@@ -42,16 +40,18 @@ export default () => {
   )
 
   return (
-    <Header className="m-header">
+    <Layout.Header className="m-header">
       <div className="fr">
         <Dropdown overlay={menu}>
           <div className="m-header-item">
             <Avatar size="small" src={Logo} alt="avatar" />
             <span className="usename"></span>
-            {userInfo.nickname}
+            {userInfo?.nickname}
           </div>
         </Dropdown>
       </div>
-    </Header>
+    </Layout.Header>
   )
 }
+
+export default Header

@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 import GlobalLoading from '@/base/GlobalLoading'
 
 // 处理请求 loading
-let loadingCount: number = 0
+let loadingCount = 0
 function loadingInterceptors(instance: AxiosInstance): void {
   // 打开 loading
   const openLoading = (config: AxiosRequestConfig): AxiosRequestConfig => {
@@ -32,10 +32,7 @@ function loadingInterceptors(instance: AxiosInstance): void {
   )
 }
 
-export default function createAxiosInstance(
-  baseURL: string = '',
-  isLoading: boolean = false
-): AxiosInstance {
+export default function createAxiosInstance(baseURL = '', isLoading = false): AxiosInstance {
   const instance = axios.create({ baseURL })
   isLoading && loadingInterceptors(instance)
   return instance

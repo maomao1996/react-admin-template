@@ -9,14 +9,19 @@ import {
   removeStorageUser
 } from '@/utils'
 
-const user = {
+export type User = {
+  userId?: number
+  nickname?: string
+}
+
+const user: User = {
   userId: 1996,
   nickname: 'maomao1996'
 }
 
 function useLogin() {
   const [isLogin, setIsLogin] = useState<boolean>(() => !!getStorageToken())
-  const [userInfo, setUserInfo] = useState(() => getStorageUser())
+  const [userInfo, setUserInfo] = useState<User>(() => getStorageUser())
 
   // 登录
   const login = useCallback(

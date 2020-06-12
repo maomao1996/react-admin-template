@@ -19,14 +19,14 @@ function deserialize(v: string | null) {
 
 // 定义 storage 方法
 export default {
-  set(key: string, val: unknown) {
+  set(key: string, val: unknown): void {
     STORAGE.setItem(key, serialize(val))
   },
-  get(key: string, def: unknown) {
+  get(key: string, def: unknown): unknown {
     const val = deserialize(STORAGE.getItem(key))
     return val === undefined ? def : val
   },
-  remove(key: string) {
+  remove(key: string): void {
     STORAGE.removeItem(key)
   }
 }
