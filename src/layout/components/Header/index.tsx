@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { Layout, Dropdown, Avatar, Menu } from 'antd'
+import { Layout, Dropdown, Avatar, Menu, Modal } from 'antd'
 import { ClickParam } from 'antd/es/menu'
 import { LogoutOutlined, GithubOutlined } from '@ant-design/icons'
 import LoginContainer from '@/store/login'
@@ -14,8 +14,16 @@ const Header: React.FC = () => {
   const onMenuClick = ({ key }: ClickParam) => {
     switch (key) {
       case 'logout':
-        logout().then(() => {
-          history.push('/login')
+        Modal.confirm({
+          title: '注销',
+          content: '确定要退出系统吗?',
+          okText: '确定',
+          cancelText: '取消',
+          onOk: () => {
+            logout().then(() => {
+              history.push('/login')
+            })
+          }
         })
         break
       case 'github':
