@@ -33,7 +33,12 @@ module.exports = {
   rules: {
     'react/prop-types': 0,
     'react/forbid-prop-types': 0,
+    'react/require-default-props': 0,
+    'react/default-props-match-prop-types': 0,
     'react/jsx-indent': 0,
+    'react/jsx-filename-extension': 0,
+    'react/display-name': 0,
+    'react/button-has-type': 0,
     '@typescript-eslint/no-non-null-assertion': 0
   }
 }
