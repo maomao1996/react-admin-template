@@ -1,17 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Spin } from 'antd'
+import { SpinProps } from 'antd/es/spin'
 import { isHidden } from '@/utils'
 
 import './index.scss'
 
-function Loading(props: React.ComponentProps<typeof Spin>) {
-  return (
-    <div className="global-loading">
-      <Spin size="large" tip="数据加载中..." {...props} />
-    </div>
-  )
-}
+export const Loading: React.FC<SpinProps> = (props) => (
+  <div className="global-loading">
+    <Spin size="large" tip="数据加载中..." {...props} />
+  </div>
+)
 
 let dom: HTMLElement | null
 const GlobalLoading = {
