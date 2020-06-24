@@ -60,6 +60,7 @@ const renderMenu = (data: MenuProps[]) =>
       return (
         <SubMenu
           key={item.path}
+          icon={item.icon}
           title={
             <span>
               <span>{item.title}</span>
