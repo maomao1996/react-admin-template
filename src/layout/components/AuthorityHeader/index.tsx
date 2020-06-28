@@ -8,7 +8,7 @@ import Logo from '@/assets/images/logo.svg'
 
 import './index.scss'
 
-const Header: React.FC = () => {
+const AuthorityHeader: React.FC = () => {
   const { logout, userInfo } = LoginContainer.useContainer()
   const history = useHistory()
   const onMenuClick = ({ key }: ClickParam) => {
@@ -62,4 +62,4 @@ const Header: React.FC = () => {
   )
 }
 
-export default Header
+export default AuthorityHeader
