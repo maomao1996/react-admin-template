@@ -31,6 +31,7 @@ export const routes: RouteItem[] = [
   ...authorizedRoutes,
   ...loginRoutes,
   {
+    layout: 'AuthorityLayout',
     path: '/404',
     component: lazy(() => import('@/pages/404'))
   },
