@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { CopyrightOutlined } from '@ant-design/icons'
 import { Layout } from 'antd'
 
@@ -10,4 +10,4 @@ const Footer: React.FC = () => {
   )
 }
 
-export default Footer
+export default memo(Footer)
