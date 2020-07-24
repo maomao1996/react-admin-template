@@ -1,9 +1,10 @@
 import React from 'react'
-import { DatabaseOutlined } from '@ant-design/icons'
+import { DatabaseOutlined, WarningOutlined } from '@ant-design/icons'
 import { MenuProps } from '@/layout/components/AuthoritySider'
 
 /**
  * 侧边栏配置
+ * 图标查询地址 https://ant.design/components/icon-cn/
  */
 
 export const menuConfig: MenuProps[] = [
@@ -13,7 +14,8 @@ export const menuConfig: MenuProps[] = [
     icon: <DatabaseOutlined />
   },
   {
-    title: '列表',
-    path: 'list'
+    title: '404',
+    path: '404',
+    icon: <WarningOutlined />
   }
 ]
