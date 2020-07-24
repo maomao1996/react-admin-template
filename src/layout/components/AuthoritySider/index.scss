@@ -1,10 +1,13 @@
-.m-sider {
-  position: fixed;
+.ant-layout-sider.m-sider {
+  position: fixed !important;
   top: 0;
   left: 0;
   height: 100%;
   overflow: auto;
   box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
+}
+
+.m-sider {
   &-head {
     display: flex;
     align-items: center;
