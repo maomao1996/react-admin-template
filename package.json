@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "author": "maomao1996 <1714487678@qq.com>",
+  "bugs": {
+    "url": "https://github.com/maomao1996/react-admin-template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maomao1996/react-admin-template"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@testing-library/jest-dom": "^5.11.0",
