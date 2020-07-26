@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo, memo } from 'react'
+import React, { useState, useCallback, useMemo } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
 import { SiderProps } from 'antd/es/layout'
@@ -115,4 +115,4 @@ const AuthoritySider: React.FC<SiderProps> = (props) => {
   )
 }
 
-export default memo(AuthoritySider)
+export default AuthoritySider
