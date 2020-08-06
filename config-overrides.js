@@ -10,6 +10,7 @@ const customHtmlWebpackPluginOptions = (config) => {
       plugin.options.cdn = [
         'https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js',
         'https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js',
+        'https://cdn.jsdelivr.net/npm/react-router-dom@5.2.0/umd/react-router-dom.min.js',
         'https://cdn.jsdelivr.net/npm/axios@0.19.2/dist/axios.min.js'
       ]
     }
@@ -35,6 +36,7 @@ module.exports = override(
     addWebpackExternals({
       react: 'React',
       'react-dom': 'ReactDOM',
+      'react-router-dom': 'ReactRouterDOM',
       axios: 'axios'
     })
 )
