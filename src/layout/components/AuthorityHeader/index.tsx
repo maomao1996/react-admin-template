@@ -1,17 +1,25 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { Layout, Dropdown, Avatar, Menu, Modal } from 'antd'
-import { ClickParam } from 'antd/es/menu'
 import { LogoutOutlined, GithubOutlined } from '@ant-design/icons'
 import LoginContainer from '@/store/login'
 import Logo from '@/assets/images/logo.svg'
 
 import './index.scss'
 
+interface ClickEvent {
+  key: React.Key
+  keyPath: React.Key[]
+  item: React.ReactInstance
+  domEvent: React.MouseEvent<HTMLElement>
+}
+
 const AuthorityHeader: React.FC = () => {
   const { logout, userInfo } = LoginContainer.useContainer()
+
   const history = useHistory()
-  const onMenuClick = ({ key }: ClickParam) => {
+
+  const onMenuClick = ({ key }: ClickEvent) => {
     switch (key) {
       case 'logout':
         Modal.confirm({

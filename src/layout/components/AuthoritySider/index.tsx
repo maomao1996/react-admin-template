@@ -105,7 +105,7 @@ const AuthoritySider: React.FC<SiderProps> = (props) => {
           theme="dark"
           mode="inline"
           openKeys={openKeys}
-          onOpenChange={setOpenKeys}
+          onOpenChange={(key) => setOpenKeys(key as string[])}
           selectedKeys={selectedKeys()}
         >
           {renderMenu(fullPathMenuData)}
