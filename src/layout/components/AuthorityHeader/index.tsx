@@ -1,7 +1,13 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { Layout, Dropdown, Avatar, Menu, Modal } from 'antd'
-import { LogoutOutlined, GithubOutlined } from '@ant-design/icons'
+import {
+  LogoutOutlined,
+  GithubOutlined,
+  FullscreenExitOutlined,
+  FullscreenOutlined
+} from '@ant-design/icons'
+import { useFullscreen } from 'ahooks'
 import LoginContainer from '@/store/login'
 import Logo from '@/assets/images/logo.svg'
 
@@ -16,6 +22,8 @@ interface ClickEvent {
 
 const AuthorityHeader: React.FC = () => {
   const { logout, userInfo } = LoginContainer.useContainer()
+
+  const [isFullscreen, { toggleFull }] = useFullscreen(document.body)
 
   const history = useHistory()
 
@@ -57,7 +65,10 @@ const AuthorityHeader: React.FC = () => {
 
   return (
     <Layout.Header className="m-header">
-      <div className="fr">
+      <div className="m-header-r fr">
+        <div className="m-header-item" style={{ fontSize: '20px' }} onClick={toggleFull}>
+          {isFullscreen ? <FullscreenExitOutlined /> : <FullscreenOutlined />}
+        </div>
         <Dropdown overlay={menu}>
           <div className="m-header-item">
             <Avatar size="small" src={Logo} alt="avatar" />
