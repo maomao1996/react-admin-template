@@ -1,5 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 import GlobalLoading from '@/base/GlobalLoading'
+import { filterObject } from '../filter'
 
 // 处理请求 loading
 let loadingCount = 0
@@ -32,8 +33,23 @@ function loadingInterceptors(instance: AxiosInstance): void {
   )
 }
 
+// 过滤请求参数中的 null undefined ''
+function filterInterceptors(instance: AxiosInstance): void {
+  const filter = (config: AxiosRequestConfig): AxiosRequestConfig => {
+    if (config.data) {
+      config.data = filterObject(config.data)
+    }
+    if (config.params) {
+      config.params = filterObject(config.params)
+    }
+    return config
+  }
+  instance.interceptors.request.use(filter)
+}
+
 export default function createAxiosInstance(baseURL = '', isLoading = false): AxiosInstance {
   const instance = axios.create({ baseURL })
+  filterInterceptors(instance)
   isLoading && loadingInterceptors(instance)
   return instance
 }
