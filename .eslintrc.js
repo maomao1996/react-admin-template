@@ -39,6 +39,7 @@ module.exports = {
     'react/jsx-filename-extension': 0,
     'react/display-name': 0,
     'react/button-has-type': 0,
-    '@typescript-eslint/no-non-null-assertion': 0
+    '@typescript-eslint/no-non-null-assertion': 0,
+    '@typescript-eslint/no-explicit-any': 0
   }
 }
