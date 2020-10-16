@@ -1,8 +1,10 @@
 import React, { Suspense } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { Router } from 'react-router-dom'
 import { ConfigProvider } from 'antd'
+
 import RenderRouter from '@/components/RenderRouter'
 import { authorizedRoutes, normalRoutes } from '@/routes'
+import history from '@/routes/history'
 import LoginContainer from '@/store/login'
 import { antdConfig } from './config'
 
@@ -11,11 +13,11 @@ const App: React.FC = () => {
 
   return (
     <ConfigProvider {...antdConfig}>
-      <BrowserRouter>
+      <Router history={history}>
         <Suspense fallback={null}>
           <RenderRouter routes={isLogin ? authorizedRoutes : normalRoutes} />
         </Suspense>
-      </BrowserRouter>
+      </Router>
     </ConfigProvider>
   )
 }
