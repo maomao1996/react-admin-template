@@ -1,5 +1,12 @@
-const { override, fixBabelImports, addWebpackAlias, addWebpackExternals } = require('customize-cra')
+const {
+  override,
+  fixBabelImports,
+  addWebpackAlias,
+  addWebpackExternals,
+  addWebpackPlugin
+} = require('customize-cra')
 const path = require('path')
+const { DefinePlugin } = require('webpack')
 
 const isEnvProduction = process.env.NODE_ENV === 'production'
 
@@ -19,6 +26,15 @@ const customHtmlWebpackPluginOptions = (config) => {
   return config
 }
 
+// 自定义 module rules 配置
+const customWebpackModuleRules = (config) => {
+  config.module.rules.push({
+    test: /\.[jt]sx?$/,
+    loader: 'react-dev-inspector/plugins/webpack/inspector-loader'
+  })
+  return config
+}
+
 module.exports = override(
   // 配置别名
   addWebpackAlias({
@@ -30,6 +46,13 @@ module.exports = override(
     libraryDirectory: 'es',
     style: 'css'
   }),
+  // 添加全局变量
+  addWebpackPlugin(
+    new DefinePlugin({
+      'process.env.PWD': JSON.stringify(process.env.PWD)
+    })
+  ),
+  !isEnvProduction && customWebpackModuleRules,
   isEnvProduction && customHtmlWebpackPluginOptions,
   // 配置 externals
   isEnvProduction &&

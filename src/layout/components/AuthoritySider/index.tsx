@@ -3,8 +3,10 @@ import { Link, useHistory } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
 import { SiderProps } from 'antd/es/layout'
 import { pathToRegexp } from 'path-to-regexp'
-import Logo from '@/assets/images/logo.svg'
+
 import { menuConfig } from '@/config/menu.tsx'
+
+import Logo from '@/assets/images/logo.svg'
 
 import './index.scss'
 

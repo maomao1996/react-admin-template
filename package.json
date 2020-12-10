@@ -74,6 +74,7 @@
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "react-app-rewired": "^2.1.6",
+    "react-dev-inspector": "^1.1.1",
     "sass": "^1.26.9",
     "source-map-explorer": "^2.4.2"
   },
