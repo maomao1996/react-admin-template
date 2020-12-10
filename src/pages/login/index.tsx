@@ -2,8 +2,11 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { Form, Input, Button } from 'antd'
 import { UserOutlined, LockTwoTone } from '@ant-design/icons'
+
 import LoginContainer from '@/store/login'
+
 import logo from '@/assets/images/logo.svg'
+
 import './index.scss'
 
 export interface LoginFormData {

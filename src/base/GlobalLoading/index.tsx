@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Spin } from 'antd'
 import { SpinProps } from 'antd/es/spin'
+
 import { isHidden } from '@/utils'
 
 import './index.scss'

@@ -1,7 +1,7 @@
-export const isString = (val: unknown): val is string => typeof val === 'string'
+export const isString = (value: unknown): value is string => typeof value === 'string'
 
 export const objectToString = Object.prototype.toString
-export const toTypeString = (val: unknown): string => objectToString.call(val)
+export const toTypeString = (value: unknown): string => objectToString.call(value)
 
-export const isPlainObject = (val: unknown): val is Record<any, any> =>
-  toTypeString(val) === '[object Object]'
+export const isPlainObject = (value: unknown): value is Record<string, unknown> =>
+  toTypeString(value) === '[object Object]'

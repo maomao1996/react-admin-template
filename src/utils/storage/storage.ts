@@ -2,29 +2,29 @@ import { isString } from '../type'
 
 const STORAGE = window.localStorage
 
-function serialize(v: unknown): string {
-  return JSON.stringify(v)
+function serialize(value: unknown): string {
+  return JSON.stringify(value)
 }
 
-function deserialize(v: string | null) {
-  if (!isString(v)) {
+function deserialize(value: string | null) {
+  if (!isString(value)) {
     return undefined
   }
   try {
-    return JSON.parse(v)
-  } catch (e) {
-    return v || undefined
+    return JSON.parse(value)
+  } catch (error) {
+    return value || undefined
   }
 }
 
 // 定义 storage 方法
 export default {
-  set(key: string, val: unknown): void {
-    STORAGE.setItem(key, serialize(val))
+  set(key: string, value: unknown): void {
+    STORAGE.setItem(key, serialize(value))
   },
-  get(key: string, def: unknown): unknown {
-    const val = deserialize(STORAGE.getItem(key))
-    return val === undefined ? def : val
+  get(key: string, defaultValue: unknown): unknown {
+    const value = deserialize(STORAGE.getItem(key))
+    return value === undefined ? defaultValue : value
   },
   remove(key: string): void {
     STORAGE.removeItem(key)
