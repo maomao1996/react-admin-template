@@ -40,6 +40,7 @@ module.exports = {
     'react/display-name': 0,
     'react/button-has-type': 0,
     '@typescript-eslint/no-non-null-assertion': 0,
-    '@typescript-eslint/no-explicit-any': 0
+    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/no-unused-vars': [1, { argsIgnorePattern: '^_' }]
   }
 }
