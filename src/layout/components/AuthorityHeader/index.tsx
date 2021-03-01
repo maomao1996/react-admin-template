@@ -74,7 +74,7 @@ const AuthorityHeader: React.FC = () => {
         <Dropdown overlay={menu}>
           <div className="m-header-item">
             <Avatar size="small" src={Logo} alt="avatar" />
-            <span className="usename"></span>
+            <span className="username"></span>
             {userInfo?.nickname}
           </div>
         </Dropdown>
