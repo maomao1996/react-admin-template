@@ -26,7 +26,7 @@ function useLogin() {
 
   // 登录
   const login = useCallback(
-    () =>
+    (): Promise<void> =>
       new Promise((resolve) => {
         setIsLogin(true)
         setStorageToken('maomao1996')
@@ -40,7 +40,7 @@ function useLogin() {
   )
   // 注销
   const logout = useCallback(
-    () =>
+    (): Promise<void> =>
       new Promise((resolve) => {
         setIsLogin(false)
         removeStorageToken()
