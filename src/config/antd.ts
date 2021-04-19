@@ -1,10 +1,10 @@
 import zhCN from 'antd/es/locale/zh_CN'
 import { ConfigProviderProps } from 'antd/es/config-provider'
 
-import moment from 'moment'
-import 'moment/locale/zh-cn'
+import dayjs from 'dayjs'
+import 'dayjs/locale/zh-cn'
 
-moment.locale('zh-cn')
+dayjs.locale('zh-cn')
 
 /**
  * antd 全局配置
