@@ -21,7 +21,7 @@
     "@types/react-dom": "^16.9.8",
     "ahooks": "^2.6.0",
     "antd": "^4.6.4",
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "dayjs": "^1.10.4",
     "path-to-regexp": "^6.1.0",
     "react": "16.13.1",
