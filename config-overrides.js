@@ -7,6 +7,7 @@ const {
 } = require('customize-cra')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
 
 const isEnvProduction = process.env.NODE_ENV === 'production'
 
@@ -46,11 +47,13 @@ module.exports = override(
     libraryDirectory: 'es',
     style: 'css'
   }),
-  // 添加全局变量
   addWebpackPlugin(
+    // 添加全局变量
     new DefinePlugin({
       'process.env.PWD': JSON.stringify(process.env.PWD)
-    })
+    }),
+    // 配置 antd dayjs
+    new AntdDayjsWebpackPlugin()
   ),
   !isEnvProduction && customWebpackModuleRules,
   isEnvProduction && customHtmlWebpackPluginOptions,
