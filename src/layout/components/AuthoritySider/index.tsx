@@ -4,7 +4,7 @@ import { Layout, Menu } from 'antd'
 import { SiderProps } from 'antd/es/layout'
 import { pathToRegexp } from 'path-to-regexp'
 
-import { menuConfig } from '@/config/menu.tsx'
+import { menuConfig } from '@/config/menu'
 
 import Logo from '@/assets/images/logo.svg'
 
