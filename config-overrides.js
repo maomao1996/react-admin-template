@@ -27,7 +27,7 @@ const customWebpackConfig = (config) => {
     // 修改 HtmlWebpackPlugin 配置
     config.plugins = config.plugins.map((plugin) => {
       if (plugin.constructor.name === 'HtmlWebpackPlugin') {
-        plugin.options.cdn = [
+        plugin.userOptions.cdn = [
           'https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js',
           'https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js',
           'https://cdn.jsdelivr.net/npm/react-router-dom@5.2.0/umd/react-router-dom.min.js',
